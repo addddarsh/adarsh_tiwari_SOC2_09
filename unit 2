@@ -1,0 +1,45 @@
+#include <iostream>   // for cin and cout
+using namespace std;
+
+// Class that stores a rectangle's dimensions and calculates area and perimeter
+class rectangle
+{
+private:
+    float length;     // length of the rectangle
+    float breadth;    // breadth of the rectangle
+public:
+    // Takes length and breadth from the user
+    void input()
+    {
+        cout <<"Enter length: ";
+        cin >>length;                  // read length
+        cout <<"Enter breadth: ";
+        cin >>breadth;  }              // read breadth
+
+    float area();      // declaration: calculates area
+    float peri();      // declaration: calculates perimeter
+    void output();};   // declaration: prints area and perimeter
+
+// Returns the area (length x breadth)
+float rectangle::area()
+{
+    return length * breadth;}
+
+// Returns the perimeter (2 x (length + breadth))
+float rectangle::peri()
+{
+    return 2 * (length + breadth);
+}
+
+// Prints the area and perimeter
+void rectangle::output()
+{
+    cout<<"\nArea: "<<area()<<endl;          // call area() and print result
+    cout<<"Perimeter: " <<peri()<<endl;      // call peri() and print result
+}
+
+int main(){
+    rectangle r;     // create a rectangle object
+    r.input();       // get length and breadth from the user
+    r.output();      // show area and perimeter
+    return 0;}
