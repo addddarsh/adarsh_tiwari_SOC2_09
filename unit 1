@@ -1,0 +1,68 @@
+#include <iostream>   // for cin and cout
+#include <string>     // for the string type
+using namespace std;
+
+// Class that stores one student's details and calculates the result
+class Student
+{
+private:
+    int roll;          // roll number
+    string name;       // student's full name
+    float marks[5];    // marks of 5 subjects
+    float percent;     // average percentage
+    float total;       // sum of all marks
+
+public:
+    // Takes student details from the user
+    void input()
+    {
+        cout << "Enter Roll Number: ";
+        cin >> roll;                       // read roll number
+
+        cin.ignore();                      // clear leftover newline before getline
+        cout << "Enter Name: ";
+        getline(cin, name);                // read full name with spaces
+
+        cout << "Enter marks for 5 subjects:" << endl;
+
+        for (int i = 0; i < 5; i++)        // loop through 5 subjects
+        {
+            cout << "Subject " << i + 1 << ": ";
+            cin >> marks[i];               // store marks of each subject
+        }
+    }
+
+    // Calculates total and percentage
+    void Result()
+    {
+        total = 0;                         // reset total before adding
+
+        for (int i = 0; i < 5; i++)
+        {
+            total = total + marks[i];      // add each subject's marks
+        }
+
+        percentage = total / 5;            // average of 5 subjects
+    }
+
+    // Prints the student's details and pass/fail result
+    void display() {
+        cout<< "\n Student Information: " <<endl;
+        cout<< "Roll number: "<<roll<< endl;
+        cout<<"Name: "<<name<<endl;
+        cout << "Total Marks: "<< endl;
+        cout << "Percentage %: "<< endl;
+
+        if (percent>= 40)                  // 40% is the pass mark
+            cout << "Result: Passed" <<endl;
+        else
+            cout << "Result: Failed" <<endl;
+    }
+};
+
+int main(){
+    Student s;       // create a student object
+    s.input();       // get details from the user
+    s.Result();      // calculate total and percentage
+    s.display();     // show the output
+    return 0;}
