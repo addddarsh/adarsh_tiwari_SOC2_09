@@ -1,0 +1,39 @@
+#include <iostream>   // for cin and cout
+#include <string>     // for the string type
+using namespace std;
+
+// Class that stores a book's details and shows constructor/destructor calls
+class Book
+{
+private:
+    int id;           // book ID
+    string nm;        // book name
+    float price;      // book price
+public:
+    // Parameterized constructor: sets values passed by the caller
+    Book(int i, string n, float p)
+    {
+        id = i;       // assign ID
+        nm = n;       // assign name
+        price = p;    // assign price
+        cout<<"Parameterized constructor called in background"<<endl; }
+
+    // Copy constructor: creates a new book as a copy of an existing one
+    Book(const Book &b)
+    {
+        id = b.id;           // copy ID from the other book
+        nm = b.nm;           // copy name from the other book
+        price = b.price;     // copy price from the other book
+        cout<<"Copy constructor called in background"<<endl;  }
+
+    // Prints the book's details
+     void output()
+    {
+        cout<<"Book ID: " <<id<<endl;
+        cout<<"Book Name: " <<nm<<endl;
+        cout<<"Price: "<<price<<endl;
+    }
+
+    // Destructor: runs automatically when the object goes out of scope
+    ~Book()
+    {
