@@ -1,0 +1,34 @@
+//Printing an employee's salary using friend class and constructors
+#include<iostream>   // for cin and cout
+using namespace std;
+
+// Class that stores an employee's salary
+class Employee{
+ private:
+  double salary;     // monthly salary, private so only friends can access it
+ public:
+  //using a constructor here
+  Employee(double empsalary){
+   salary=empsalary;     // assign the salary passed by the caller
+  }
+ //declaring a friend class of Employee
+ friend class displaysal;   // lets displaysal read Employee's private members
+};
+
+// Friend class that prints an employee's salary
+class displaysal{
+ public:
+  //Using 'emp' to access Employee 
+  void display(Employee& emp){
+   cout<<"Monthly salary: Rp "<<emp.salary<<endl;   // direct access to private salary
+ }
+};
+
+int main(){
+ //Creating objects for the classes
+ Employee emp1(750000.00);   // employee with a salary of 750000
+ displaysal payroll;         // object of the friend class
+ //Passing emp1 to display 
+ payroll.display(emp1);      // prints emp1's salary
+ return 0;
+}
