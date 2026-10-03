@@ -1,0 +1,56 @@
+#include <iostream>   // for cin and cout
+#include <string>     // for the string type
+using namespace std;
+
+// Class that stores an employee's details and calculates total salary
+class Employee
+{
+private:
+    int id;           // employee ID
+    string nm;        // employee name
+    float sal;        // base salary
+    float bon;        // bonus amount
+public:
+    // Default constructor: sets default values
+    Employee()
+    {
+        id = 0;
+        nm = "Abeer";
+        sal = 0;
+        bon = 0;
+    }
+
+    // Parameterized constructor: sets values passed by the caller
+    Employee(int i, string n, float s, float b)
+    {
+        id = i;       // assign ID
+        nm = n;       // assign name
+        sal = s;      // assign salary
+        bon = b;      // assign bonus
+    }
+
+    // Returns total salary (salary + bonus)
+    float total()
+    {
+        return sal + bon;
+    }
+
+    // Prints all employee details
+    void output()
+    {
+        cout<<"\nEmployee ID: "<< id << endl;
+        cout<<"Name: " << nm <<endl;
+        cout<<"Salary: " <<sal<<endl;
+        cout<<"Bonus: " <<bon <<endl;
+        cout<<"Total Salary: "<<total()<<endl;   // call total() to get the sum
+    }};
+
+int main(){
+    Employee e1;                                  // uses the default constructor
+    cout <<"Employee (Default Constructor):";
+    e1.output();                                  // show default values
+
+    Employee e2(101, "Akira", 60000, 4200);       // uses the parameterized constructor
+    cout<<"\nEmployee (Parameterized Constructor):";
+    e2.output();                                  // show the values passed in
+    return 0;}
